@@ -11,9 +11,9 @@ import { CleanProjects } from "@/components/clean-projects"
 import { CleanExperience } from "@/components/clean-experience"
 import { InteractiveSkills } from "@/components/interactive-skills"
 import { ProfessionalDevelopment } from "@/components/professional-development"
-import { VolunteeringActivities } from "@/components/volunteering-activities"
+import { VolunteeringActivities } from "../components/volunteering-activities"
 import { Testimonials } from "@/components/testimonials"
-import { WorkingContactForm } from "@/components/working-contact-form"
+import { WorkingContactForm } from "../components/working-contact-form"
 import type { PortfolioData } from "@/lib/portfolio-data"
 
 export default function Portfolio() {
