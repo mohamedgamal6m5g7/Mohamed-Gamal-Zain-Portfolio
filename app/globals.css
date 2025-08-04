@@ -1,0 +1,713 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    line-height: 1.6;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Professional color accents with better dark mode support */
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.dark .text-blue-600 {
+  color: #60a5fa;
+}
+
+.text-red-500 {
+  color: #ef4444;
+}
+
+.dark .text-red-500 {
+  color: #f87171;
+}
+
+.text-green-600 {
+  color: #16a34a;
+}
+
+.dark .text-green-600 {
+  color: #4ade80;
+}
+
+.text-yellow-600 {
+  color: #ca8a04;
+}
+
+.dark .text-yellow-600 {
+  color: #facc15;
+}
+
+.text-purple-600 {
+  color: #9333ea;
+}
+
+.dark .text-purple-600 {
+  color: #a855f7;
+}
+
+/* Enhanced text contrast for dark mode */
+.dark .text-gray-700 {
+  color: #e5e7eb;
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-500 {
+  color: #9ca3af;
+}
+
+.dark .text-gray-400 {
+  color: #9ca3af;
+}
+
+.dark .text-gray-300 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-200 {
+  color: #e5e7eb;
+}
+
+/* Fix for text-muted-foreground visibility */
+.text-muted-foreground {
+  color: #6b7280;
+}
+
+.dark .text-muted-foreground {
+  color: #d1d5db;
+}
+
+/* Enhanced spacing and typography */
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.dark p {
+  color: #e5e7eb;
+}
+
+/* Card spacing improvements */
+.card {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dark .card {
+  background-color: rgba(31, 41, 55, 0.8);
+  border-color: #374151;
+}
+
+/* Section spacing improvements */
+section {
+  padding: 3rem 0;
+}
+
+.dark section {
+  background-color: rgba(17, 24, 39, 0.8);
+}
+
+/* Hover effects for cards */
+.hover\:shadow-lg:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .hover\:shadow-lg:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient backgrounds for section headers */
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+/* Professional animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Enhanced card backgrounds for better contrast */
+.dark .bg-white\/80 {
+  background-color: rgba(31, 41, 55, 0.8);
+}
+
+.dark .bg-gray-800\/80 {
+  background-color: rgba(31, 41, 55, 0.8);
+}
+
+/* Better badge contrast in dark mode */
+.dark .bg-red-50 {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.dark .bg-green-50 {
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.dark .bg-yellow-50 {
+  background-color: rgba(234, 179, 8, 0.1);
+}
+
+.dark .bg-purple-50 {
+  background-color: rgba(147, 51, 234, 0.1);
+}
+
+/* Improved spacing for better readability */
+.section-padding {
+  padding: 4rem 0;
+}
+
+.dark .section-padding {
+  padding: 4rem 0;
+}
+
+/* Enhanced text readability */
+.text-readable {
+  color: #374151;
+  line-height: 1.7;
+}
+
+.dark .text-readable {
+  color: #e5e7eb;
+  line-height: 1.7;
+}
+
+/* Better contrast for small text */
+.text-sm {
+  line-height: 1.5;
+}
+
+.dark .text-sm {
+  color: #d1d5db;
+}
+
+/* Enhanced button contrast */
+.dark .btn-primary {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.dark .btn-secondary {
+  background-color: #4b5563;
+  color: #ffffff;
+}
+
+/* Improved form elements */
+.dark input, .dark textarea, .dark select {
+  background-color: rgba(55, 65, 81, 0.8);
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+.dark input::placeholder, .dark textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Enhanced dark mode section backgrounds */
+.dark .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.9), rgba(31, 41, 55, 0.9));
+}
+
+/* Better text visibility in dark mode */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f9fafb;
+}
+
+/* Enhanced gradient text support for both modes */
+.text-transparent {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Fallback for browsers that don't support gradient text */
+@supports not (background-clip: text) {
+  .text-transparent {
+    color: inherit;
+  }
+}
+
+/* Ensure gradient text is visible in both light and dark modes */
+.bg-gradient-to-r.bg-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Fallback colors for gradient text */
+h1.bg-clip-text, h2.bg-clip-text, h3.bg-clip-text {
+  color: #1f2937; /* Fallback for light mode */
+}
+
+.dark h1.bg-clip-text, .dark h2.bg-clip-text, .dark h3.bg-clip-text {
+  color: #f9fafb; /* Fallback for dark mode */
+}
+
+/* Enhanced navigation visibility */
+.dark nav {
+  background-color: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Better card contrast in dark mode */
+.dark .bg-white\/80 {
+  background-color: rgba(31, 41, 55, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+/* Improved button visibility in dark mode */
+.dark button {
+  color: #e5e7eb;
+}
+
+.dark .bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+/* Enhanced section headers in dark mode */
+.dark .bg-gradient-to-br.from-blue-50.via-indigo-50.to-purple-50 {
+  background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.9), rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.9));
+}
+
+/* Better text contrast for all elements */
+.dark * {
+  color-scheme: dark;
+}
+
+/* Enhanced focus states for dark mode */
+.dark *:focus {
+  outline-color: #60a5fa;
+}
+
+/* Improved link visibility in dark mode */
+.dark a {
+  color: #60a5fa;
+}
+
+.dark a:hover {
+  color: #93c5fd;
+}
+
+/* Enhanced dark mode overrides for Dialog components */
+.dark [data-slot="dialog-content"] {
+  background-color: rgb(31 41 55) !important;
+  border-color: rgb(55 65 81) !important;
+}
+
+.dark [data-slot="dialog-content"] h2,
+.dark [data-slot="dialog-content"] h3,
+.dark [data-slot="dialog-content"] h4 {
+  color: rgb(249 250 251) !important;
+}
+
+.dark [data-slot="dialog-content"] p,
+.dark [data-slot="dialog-content"] span,
+.dark [data-slot="dialog-content"] li {
+  color: rgb(229 231 235) !important;
+}
+
+.dark [data-slot="dialog-content"] .text-muted-foreground {
+  color: rgb(209 213 219) !important;
+}
+
+.dark [data-slot="dialog-content"] .bg-muted {
+  background-color: rgb(55 65 81) !important;
+}
+
+.dark [data-slot="dialog-content"] .border {
+  border-color: rgb(55 65 81) !important;
+}
+
+/* Comprehensive dark mode overrides for Dialog and Modal components */
+.dark [data-slot="dialog-content"],
+.dark .DialogContent,
+.dark .Modal {
+  background-color: rgb(31 41 55) !important;
+  border-color: rgb(55 65 81) !important;
+  color: rgb(229 231 235) !important;
+}
+
+.dark [data-slot="dialog-overlay"],
+.dark .DialogOverlay {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.dark [data-slot="dialog-content"] *,
+.dark .DialogContent *,
+.dark .Modal * {
+  color: inherit !important;
+}
+
+.dark [data-slot="dialog-content"] h1,
+.dark [data-slot="dialog-content"] h2,
+.dark [data-slot="dialog-content"] h3,
+.dark [data-slot="dialog-content"] h4,
+.dark [data-slot="dialog-content"] h5,
+.dark [data-slot="dialog-content"] h6,
+.dark .DialogContent h1,
+.dark .DialogContent h2,
+.dark .DialogContent h3,
+.dark .DialogContent h4,
+.dark .DialogContent h5,
+.dark .DialogContent h6,
+.dark .Modal h1,
+.dark .Modal h2,
+.dark .Modal h3,
+.dark .Modal h4,
+.dark .Modal h5,
+.dark .Modal h6 {
+  color: rgb(249 250 251) !important;
+}
+
+.dark [data-slot="dialog-content"] p,
+.dark [data-slot="dialog-content"] span,
+.dark [data-slot="dialog-content"] li,
+.dark [data-slot="dialog-content"] div,
+.dark .DialogContent p,
+.dark .DialogContent span,
+.dark .DialogContent li,
+.dark .DialogContent div,
+.dark .Modal p,
+.dark .Modal span,
+.dark .Modal li,
+.dark .Modal div {
+  color: rgb(229 231 235) !important;
+}
+
+.dark [data-slot="dialog-content"] .text-muted-foreground,
+.dark .DialogContent .text-muted-foreground,
+.dark .Modal .text-muted-foreground {
+  color: rgb(209 213 219) !important;
+}
+
+.dark [data-slot="dialog-content"] .bg-muted,
+.dark .DialogContent .bg-muted,
+.dark .Modal .bg-muted {
+  background-color: rgb(55 65 81) !important;
+}
+
+.dark [data-slot="dialog-content"] .border,
+.dark .DialogContent .border,
+.dark .Modal .border {
+  border-color: rgb(55 65 81) !important;
+}
+
+/* Force dark mode for any white backgrounds in dialogs */
+.dark [data-slot="dialog-content"] .bg-white,
+.dark .DialogContent .bg-white,
+.dark .Modal .bg-white {
+  background-color: rgb(31 41 55) !important;
+}
+
+/* Ensure badges and other elements are properly styled */
+.dark [data-slot="dialog-content"] .badge,
+.dark .DialogContent .badge,
+.dark .Modal .badge {
+  background-color: rgb(55 65 81) !important;
+  color: rgb(229 231 235) !important;
+  border-color: rgb(75 85 99) !important;
+}
+
+/* Aggressive dark mode overrides for all dialog elements */
+.dark div[role="dialog"],
+.dark [data-radix-dialog-content],
+.dark [data-slot="dialog-content"],
+.dark .DialogContent,
+.dark .Modal,
+.dark .modal {
+  background-color: #1f2937 !important;
+  color: #e5e7eb !important;
+  border-color: #374151 !important;
+}
+
+.dark div[role="dialog"] *,
+.dark [data-radix-dialog-content] *,
+.dark [data-slot="dialog-content"] *,
+.dark .DialogContent *,
+.dark .Modal *,
+.dark .modal * {
+  color: #e5e7eb !important;
+}
+
+.dark div[role="dialog"] h1,
+.dark div[role="dialog"] h2,
+.dark div[role="dialog"] h3,
+.dark div[role="dialog"] h4,
+.dark div[role="dialog"] h5,
+.dark div[role="dialog"] h6,
+.dark [data-radix-dialog-content] h1,
+.dark [data-radix-dialog-content] h2,
+.dark [data-radix-dialog-content] h3,
+.dark [data-radix-dialog-content] h4,
+.dark [data-radix-dialog-content] h5,
+.dark [data-radix-dialog-content] h6,
+.dark [data-slot="dialog-content"] h1,
+.dark [data-slot="dialog-content"] h2,
+.dark [data-slot="dialog-content"] h3,
+.dark [data-slot="dialog-content"] h4,
+.dark [data-slot="dialog-content"] h5,
+.dark [data-slot="dialog-content"] h6,
+.dark .DialogContent h1,
+.dark .DialogContent h2,
+.dark .DialogContent h3,
+.dark .DialogContent h4,
+.dark .DialogContent h5,
+.dark .DialogContent h6,
+.dark .Modal h1,
+.dark .Modal h2,
+.dark .Modal h3,
+.dark .Modal h4,
+.dark .Modal h5,
+.dark .Modal h6,
+.dark .modal h1,
+.dark .modal h2,
+.dark .modal h3,
+.dark .modal h4,
+.dark .modal h5,
+.dark .modal h6 {
+  color: #f9fafb !important;
+}
+
+/* Force remove any white backgrounds */
+.dark div[role="dialog"] .bg-white,
+.dark [data-radix-dialog-content] .bg-white,
+.dark [data-slot="dialog-content"] .bg-white,
+.dark .DialogContent .bg-white,
+.dark .Modal .bg-white,
+.dark .modal .bg-white {
+  background-color: #1f2937 !important;
+}
+
+/* Ensure all text is visible */
+.dark div[role="dialog"] .text-gray-900,
+.dark [data-radix-dialog-content] .text-gray-900,
+.dark [data-slot="dialog-content"] .text-gray-900,
+.dark .DialogContent .text-gray-900,
+.dark .Modal .text-gray-900,
+.dark .modal .text-gray-900 {
+  color: #f9fafb !important;
+}
+
+.dark div[role="dialog"] .text-gray-700,
+.dark [data-radix-dialog-content] .text-gray-700,
+.dark [data-slot="dialog-content"] .text-gray-700,
+.dark .DialogContent .text-gray-700,
+.dark .Modal .text-gray-700,
+.dark .modal .text-gray-700 {
+  color: #e5e7eb !important;
+}
+
+/* Force dark mode for Modal component specifically */
+.dark .Modal,
+.dark [data-slot="modal"],
+.dark .modal {
+  background-color: #1f2937 !important;
+  color: #e5e7eb !important;
+  border-color: #374151 !important;
+}
+
+.dark .Modal *,
+.dark [data-slot="modal"] *,
+.dark .modal * {
+  color: #e5e7eb !important;
+}
+
+.dark .Modal h1,
+.dark .Modal h2,
+.dark .Modal h3,
+.dark .Modal h4,
+.dark .Modal h5,
+.dark .Modal h6,
+.dark [data-slot="modal"] h1,
+.dark [data-slot="modal"] h2,
+.dark [data-slot="modal"] h3,
+.dark [data-slot="modal"] h4,
+.dark [data-slot="modal"] h5,
+.dark [data-slot="modal"] h6,
+.dark .modal h1,
+.dark .modal h2,
+.dark .modal h3,
+.dark .modal h4,
+.dark .modal h5,
+.dark .modal h6 {
+  color: #f9fafb !important;
+}
+
+/* Force remove any white backgrounds in modals */
+.dark .Modal .bg-white,
+.dark [data-slot="modal"] .bg-white,
+.dark .modal .bg-white {
+  background-color: #1f2937 !important;
+}
+
+/* Ensure all text is visible in modals */
+.dark .Modal .text-gray-900,
+.dark [data-slot="modal"] .text-gray-900,
+.dark .modal .text-gray-900 {
+  color: #f9fafb !important;
+}
+
+.dark .Modal .text-gray-700,
+.dark [data-slot="modal"] .text-gray-700,
+.dark .modal .text-gray-700 {
+  color: #e5e7eb !important;
+}
